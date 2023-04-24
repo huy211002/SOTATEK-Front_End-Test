@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap.min.css">
+
+</head>
+
+<body>
+    <div>
+        <div class="container">
+            <div class="row">
+                <div class="new_task col-6" style="border: 1px solid black; padding: 20px">
+                    <form>
+                        <h3 class="header text-center fw-bolder">New Task</h3>
+                        <input type="text" required placeholder="Add new task..." class="w-100 taskname">
+                        <label for="desc" class="fw-bolder">Description</label>
+                        <textarea name="desc" id="desc" class="w-100" rows="8"></textarea>
+                        <div class="row">
+                            <div class="taskdate col-5">
+                                <label for="date" class="fw-bolder">Due Date</label>
+                                <input class="w-100" type="date" name="datetime" id="date">
+                            </div>
+                            <div class="taskpriority offset-2 col-5 ">
+                                <label for="priority" class="fw-bolder">Priority</label>
+                                <br>
+                                <select class="w-100" id="priority">
+                                    <option value="low">low</option>
+                                    <option value="normal">normal</option>
+                                    <option value="high">high</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="text-center mt-3">
+                            <button type="submit" class="btn btn-success w-100" onclick="addTask()">Add</button>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="todo-list col-6" style="border: 1px solid black; padding: 20px">
+                    <h3 class="text-center fw-bolder">To Do List</h3>
+                    <div class="task-seach">
+                        <input type="text" class="search w-100" onkeyup="search()" placeholder="Search...">
+                    </div>
+                    <br>
+                    <div class="todo-task"></div>
+                    <div class="todo-detail"></div>
+                    <div class="todo-burk"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Lấy ngày hiện tại
+        var today = new Date().toISOString().substr(0, 10);
+        var dateInput = document.getElementById("date");
+        // Đặt giá trị mặc định và giá trị tối thiểu cho trường input kiểu date
+        dateInput.value = today;
+        // dateInput.min = today;
+    </script>
+    <script src="JS/main.js"></script>
+    <script src="bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>
